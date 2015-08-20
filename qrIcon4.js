@@ -1235,11 +1235,11 @@ function qrLink(position) {
   }
 
 
-  element[0].innerHTML += '<div id="cdawrap" style="height:50vh; background-color:white; position: absolute; top: calc(50vh - 25vh); left: calc(50vw - 35vh); margin: auto; position: fixed; width:70vh"> <div> <h3><center>Qr code for: '+url+'</center></h3> </div><center> <img id="qr-code" style="height:25vh;width:25vh"/></center> <div> <center> <h6> Qr code generated with: <a href="http://neocotic.com/qr.js/"> QR.JS </a> </h6> </center> </div> <button style="width:100%;height:7vh;font-size:5vh" id="qrCloser"> Close </button> </div>';
+  element[0].innerHTML += '<div id="cdawrap" style="height:50vh; background-color:white;visibility:hidden; position: absolute; top: calc(50vh - 25vh); left: calc(50vw - 35vh); margin: auto; position: fixed; width:70vh"> <div> <h3><center>Qr code for: '+url+'</center></h3> </div><center> <img id="qr-code" style="height:25vh;width:25vh"/></center> <div> <center> <h6> Qr code generated with: <a href="http://neocotic.com/qr.js/"> QR.JS </a> </h6> </center> </div> <button style="width:100%;height:7vh;font-size:5vh" id="qrCloser"> Close </button> </div>';
 	
 	
 	
-  element[0].innerHTML += "<div id='qrIcon' style='width: 12vh;visibility:hidden;" + obj[position] + ";position: fixed;  background: rgba(255, 255, 255, 0.8);  z-index: 1000000;padding: 5px 5px 5px 5px;'><img style='height:10vh;z-index:2000;' src='https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/512/qr_code.png' alt='Qr Code'></div>";
+  element[0].innerHTML += "<div id='qrIcon' style='width: 12vh;" + obj[position] + ";position: fixed;  background: rgba(255, 255, 255, 0.8);  z-index: 1000000;padding: 5px 5px 5px 5px;'><img style='height:10vh;z-index:2000;' src='https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/512/qr_code.png' alt='Qr Code'></div>";
 
 var element1 = document.getElementById('qrIcon');
 element1.onclick = function() {

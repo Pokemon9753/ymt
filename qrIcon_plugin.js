@@ -1235,7 +1235,7 @@ function qrLink(position) {
   }
 
 
-  element[0].innerHTML += '<div id="cdawrap" style="height:100vh; background-color:white; position: absolute; top:0; left: calc(50vw - 35vh); margin: auto; position: fixed; width:70vh"> <div> <h1><center>Qr code for: '+url+'</center></h1> </div> <img id="qr-code" style="height:70vh;width:70vh"/> <div> <center> <h6> Qr code generated with: <a href="http://neocotic.com/qr.js/"> QR.JS </a> </h6> </center> </div> <button style="width:100%;height:7vh;font-size:5vh" id="qrCloser"> Close </button> </div>';
+  element[0].innerHTML += '<div id="cdawrap" style="height:100vh; background-color:white; position: absolute; top:0; left: calc(50vw - 35vh); margin: auto; position: fixed; width:70vh"> <div> <h3><center>Qr code for: '+url+'</center></h3> </div> <img id="qr-code" style="height:70vh;width:70vh"/> <div> <center> <h6> Qr code generated with: <a href="http://neocotic.com/qr.js/"> QR.JS </a> </h6> </center> </div> <button style="width:100%;height:7vh;font-size:5vh" id="qrCloser"> Close </button> </div>';
 	
 	
 	
@@ -1244,11 +1244,13 @@ function qrLink(position) {
 var element1 = document.getElementById('qrIcon');
 element1.onclick = function() {
 document.getElementById('cdawrap').style.visibility="visible";
+element1.style.visibility="hidden";
 };	
 	
-var element1 = document.getElementById('qrCloser');
-element1.onclick = function() {
+var element12 = document.getElementById('qrCloser');
+element12.onclick = function() {
 document.getElementById('cdawrap').style.visibility="hidden";
+element1.style.visibility="visible";
 };
   qr.image({
     image: document.getElementById('qr-code'),

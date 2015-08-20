@@ -1252,7 +1252,7 @@ document.getElementById('cdawrap').style.visibility="hidden";
 };
   qr.image({
     image: document.getElementById('qr-code'),
-    value: 'https://github.com/neocotic/qr.js',
+    value: url',
     size: 10
   });
 

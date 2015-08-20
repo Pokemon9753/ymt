@@ -1264,7 +1264,3 @@ element1.style.visibility="visible";
 
 
 
-
-
-
-qrLink("right");

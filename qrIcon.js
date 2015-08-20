@@ -1260,9 +1260,3 @@ document.getElementById('cdawrap').style.visibility="hidden";
 }
 
 
-
-
-
-
-
-qrLink("right");

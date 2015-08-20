@@ -1239,7 +1239,7 @@ function qrLink(position) {
 	
 	
 	
-  element[0].innerHTML += "<div id='qrIcon' style='width: 10vh;visiblity:hidden;" + obj[position] + ";position: fixed;  background: rgba(255, 255, 255, 0.8);  z-index: 1000000;padding: 5px 5px 5px 5px;'><img style='height:10vh;z-index:2000;' src='https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/512/qr_code.png' alt='Qr Code'></div>";
+  element[0].innerHTML += "<div id='qrIcon' style='width: 10vh;visibility:hidden;" + obj[position] + ";position: fixed;  background: rgba(255, 255, 255, 0.8);  z-index: 1000000;padding: 5px 5px 5px 5px;'><img style='height:10vh;z-index:2000;' src='https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/512/qr_code.png' alt='Qr Code'></div>";
 
 var element1 = document.getElementById('qrIcon');
 element1.onclick = function() {

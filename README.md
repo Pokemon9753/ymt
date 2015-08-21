@@ -2,7 +2,7 @@
 Tools made by YMT
 
 # Qr Code
-A widget that can be added to any website; creates a qr code that can be used to view the page in your file.
+A widget that can be added to any website; creates a qr code that can be used to view the current page on your mobile device.
   ```html
 <!DOCTYPE html>
 <html>

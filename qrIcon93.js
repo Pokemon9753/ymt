@@ -1246,15 +1246,19 @@ function qrLink(position) {
       element1.style.visibility = "hidden";
     };
        element1.ondragend = function() {
-      element1.style.visibility = "hidden";
-	document.getElementsByClassName('QR_text').style.visibility = "hidden";
+      element1.style.visibility = "hidden"; for (var y in document.getElementsByClassName('QR_text')) 
+        {
+	document.getElementsByClassName('QR_text')[y].style.visibility = "hidden";
+        }
     };
 
     var element12 = document.getElementById('qrCloser');
     element12.onclick = function() {
       document.getElementById('cdawrap').style.visibility = "hidden";
-      element1.style.visibility = "visible";
-	document.getElementsByClassName('QR_text').style.visibility = "hidden";
+      element1.style.visibility = "visible";  for (var y in document.getElementsByClassName('QR_text')) 
+        {
+	document.getElementsByClassName('QR_text')[y].style.visibility = "hidden";
+        }
       
 			
     };

@@ -1296,7 +1296,7 @@ var keys = {
     ctrl: false
 };
 
-document.onkeydown(function(event) {
+window.onkeydown(function(event) {
 // save status of the button 'pressed' == 'true'
     if (event.keyCode == 81) {
         keys["Q"] = true;

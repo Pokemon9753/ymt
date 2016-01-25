@@ -7,7 +7,7 @@ A widget that can be added to any website; creates a qr code that can be used to
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="https://rawgit.com/Pokemon9753/ymt/master/qrIcon4.js"></script> <!-- Include Script Tag.. -->
+        <script src="https://rawgit.com/Pokemon9753/ymt/master/qrIcon.js"></script> <!-- Include Script Tag.. -->
     </head>
     <body>
     ...

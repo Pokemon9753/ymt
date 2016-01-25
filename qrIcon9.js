@@ -1247,6 +1247,7 @@ function qrLink(position) {
     };
        element1.ondragend = function() {
       element1.style.visibility = "hidden";
+	document.getElementsByClassName('QR_text').style.visibility = "hidden";
     };
 
     var element12 = document.getElementById('qrCloser');

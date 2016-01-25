@@ -1210,57 +1210,77 @@ var exists = false;
 
 function qrLink(position) {
 
-  var obj = {
+    var obj = {
 
 
-    topright: "right:1em;top:1em",
-    topleft: "left:1em;top:1em",
-    bottomleft: "left:1em;bottom:1em",
-    bottomright: "right:1em;bottom:1em",
-    top: "top:1em;margin-left:calc(50vw - 5vh);",
-    right: "position: absolute; top:45vh; right: 1em; margin: auto;",
-    left: "position: absolute; top:45vh; left: 1em; margin: auto;",
-    bottom: "bottom:1em;margin-left:calc(50vw - 5vh);"
+      topright: "right:1em;top:1em",
+      topleft: "left:1em;top:1em",
+      bottomleft: "left:1em;bottom:1em",
+      bottomright: "right:1em;bottom:1em",
+      top: "top:1em;margin-left:calc(50vw - 5vh);",
+      right: "position: absolute; top:45vh; right: 1em; margin: auto;",
+      left: "position: absolute; top:45vh; left: 1em; margin: auto;",
+      bottom: "bottom:1em;margin-left:calc(50vw - 5vh);"
 
-  };
-
-
-
-  var url = window.location.href;
-
-  var element = document.getElementsByTagName("body");
-  var qr2 = document.getElementById("qrIcon");
-  if (exists) {
-    element.remove(qr2);
-  }
-
-
-  element[0].innerHTML += '<div id="cdawrap" style="height:50vh; background-color:white;visibility:hidden; position: absolute; top: calc(50vh - 25vh); left: calc(50vw - 35vh); margin: auto; position: fixed; width:70vh"> <div> <h3><center>Qr code for: '+url+'</center></h3> </div><center> <img id="qr-code" style="height:25vh;width:25vh"/></center> <div> <center> <h6> Qr code generated with: <a href="http://neocotic.com/qr.js/"> QR.JS </a> </h6> </center> </div> <button style="width:100%;height:7vh;font-size:5vh" id="qrCloser"> Close </button> </div>';
-	
-	
-	
-  element[0].innerHTML += "<div id='qrIcon' style='width: 12vh;" + obj[position] + ";position: fixed;  background: rgba(255, 255, 255, 0.8);  z-index: 1000000;padding: 5px 5px 5px 5px;'><img style='height:10vh;z-index:2000;' src='https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/512/qr_code.png' alt='Qr Code'></div>";
-
-var element1 = document.getElementById('qrIcon');
-element1.onclick = function() {
-document.getElementById('cdawrap').style.visibility="visible";
-element1.style.visibility="hidden";
-};	
-	
-var element12 = document.getElementById('qrCloser');
-element12.onclick = function() {
-document.getElementById('cdawrap').style.visibility="hidden";
-element1.style.visibility="visible";
-};
-  qr.image({
-    image: document.getElementById('qr-code'),
-    value: url,
-    size: 10
-  });
-
-  document.getElementById('qr-code').setAttribute("class", "democlass");
-}
+    };
 
 
 
+    var url = window.location.href;
+
+    var element = document.getElementsByTagName("body");
+    var qr2 = document.getElementById("qrIcon");
+    if (exists) {
+      element.remove(qr2);
+    }
+
+    element[0].innerHTML += ' <div id="cdawrap" style=" font-family: \'Syncopate\';height:40vh;color:#7f8c8d; background-color:#2c3e50; position: absolute; bottom:0; right:0; margin: 0; position: fixed; width:25vw"> <div class="QR_text"> <h3><center>Qr code for: '+url+'</center></h3> </div> <center> <img id="qr-code" style="height:calc(25vh - 31px );width:calc(25vh - 31px )" /> </center> <div class="QR_text"> <center> <h6> Qr code generated with: <a href="http://neocotic.com/qr.js/"> QR.JS </a> </h6> </center> </div> <div style="background-color:#34495e;bottom:0;"><img style="float:right;padding-left:1vw;cursor: pointer;" src="http://icons.iconarchive.com/icons/graphicloads/100-flat/32/close-icon.png" id="qrCloser"><img id="textShow" style="float:left;width:32px" src="https://cdn0.iconfinder.com/data/icons/business-and-management-2/512/document_text_page_file_paper_sheet_note_list_pad_letter_office_doc_business_office_information_message_flat_design_icon-128.png" alt=""> </div> </div>';
+
+
+
+    element[0].innerHTML += "<div id='qrIcon' style='width: 12vh;" + obj[position] + ";position: fixed;  background: rgba(255, 255, 255, 0.0);  z-index: 1000000;padding: 5px 5px 5px 5px;'><img style='height:10vh;z-index:2000;' src='https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/512/qr_code.png' alt='Qr Code'></div>";
+
+    var element1 = document.getElementById('qrIcon');
+    element1.onclick = function() {
+      document.getElementById('cdawrap').style.visibility = "visible";
+      element1.style.visibility = "hidden";
+    };
+
+    var element12 = document.getElementById('qrCloser');
+    element12.onclick = function() {
+      document.getElementById('cdawrap').style.visibility = "hidden";
+      element1.style.visibility = "visible";
+			document.getElementsByClassName('QR_text')[x].style.visibility = "hidden";
+      
+			
+    };
+
+    var element123 = document.getElementById('textShow');
+    element123.onclick = function() {
+
+
+      for (var x in document.getElementsByClassName('QR_text')) 
+        {
+          if (
+            document.getElementsByClassName('QR_text')[x].style.visibility == "hidden"
+          ) {
+
+            document.getElementsByClassName('QR_text')[x].style.visibility = "visible";
+
+          } else {
+            document.getElementsByClassName('QR_text')[x].style.visibility = "hidden";
+          }
+        }
+
+      };
+
+
+      qr.image({
+        image: document.getElementById('qr-code'),
+        value: url,
+        size: 10
+      });
+
+      document.getElementById('qr-code').setAttribute("class", "democlass");
+    }
 

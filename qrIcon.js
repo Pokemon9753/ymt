@@ -1245,6 +1245,9 @@ function qrLink(position) {
       document.getElementById('cdawrap').style.visibility = "visible";
       element1.style.visibility = "hidden";
     };
+       element1.ondragend = function() {
+      element1.style.visibility = "hidden";
+    };
 
     var element12 = document.getElementById('qrCloser');
     element12.onclick = function() {

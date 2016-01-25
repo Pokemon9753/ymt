@@ -1291,4 +1291,20 @@ function qrLink(position) {
 
       document.getElementById('qr-code').setAttribute("class", "democlass");
     }
+var keys = {
+    Q: false,
+    ctrl: false
+};
+
+$(document.body).keydown(function(event) {
+// save status of the button 'pressed' == 'true'
+    if (event.keyCode == 81) {
+        keys["Q"] = true;
+    } else if (event.keyCode == 17) {
+        keys["ctrl"] = true;
+    }
+    if (keys["Q"] && keys["ctrl"]) {
+        document.getElementById('qrIcon').style.visibility = "visible"; 
+    }
+});
 

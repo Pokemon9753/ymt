@@ -1,3 +1,4 @@
+
 (function(root) {
 
   'use strict';
@@ -1234,7 +1235,7 @@ function qrLink(position) {
       element.remove(qr2);
     }
 
-    element[0].innerHTML += ' <div id="cdawrap" style=" font-family: \'Syncopate\';height:40vh;color:#7f8c8d; background-color:#2c3e50; position: absolute; bottom:0; right:0; margin: 0; position: fixed; width:25vw;visibility:hidden"> <div class="QR_text"> <center> <h6>'+url+'</h6></center> </div> <center> <img id="qr-code" style="height:calc(25vh - 31px );width:calc(25vh - 31px )" /> </center> <div class="QR_text"> <center> <h6> Qr code generated with: <a href="http://neocotic.com/qr.js/"> QR.JS </a> </h6> </center> </div> <div style="background-color:#34495e;bottom:0;"><img style="float:right;padding-left:1vw;cursor: pointer;" src="http://icons.iconarchive.com/icons/graphicloads/100-flat/32/close-icon.png" id="qrCloser"><img id="textShow" style="float:left;width:32px;cursor: pointer;" src="//cdn0.iconfinder.com/data/icons/business-and-management-2/512/document_text_page_file_paper_sheet_note_list_pad_letter_office_doc_business_office_information_message_flat_design_icon-128.png" alt=""> </div> </div>';
+    element[0].innerHTML += ' <div id="cdawrap" style=" font-family: \'Syncopate\';height:40vh;color:#7f8c8d; background-color:white; position: absolute; bottom:0; right:0; margin: 0; position: fixed; width:25vw;visibility:hidden"> <div class="QR_text"> <center> <h6>'+url+'</h6></center> </div> <center> <img id="qr-code" style="height:calc(25vh - 31px );width:calc(25vh - 31px )" /> </center> <div class="QR_text"> <center> <h6> Qr code generated with: <a href="http://neocotic.com/qr.js/"> QR.JS </a> </h6> </center> </div> <div style="background-color:#34495e;bottom:0;"><img style="float:right;padding-left:1vw;cursor: pointer;" src="http://icons.iconarchive.com/icons/graphicloads/100-flat/32/close-icon.png" id="qrCloser"><img id="textShow" style="float:left;width:32px;cursor: pointer;" src="//cdn0.iconfinder.com/data/icons/business-and-management-2/512/document_text_page_file_paper_sheet_note_list_pad_letter_office_doc_business_office_information_message_flat_design_icon-128.png" alt=""> </div> </div>';
 
 
 
@@ -1270,7 +1271,7 @@ function qrLink(position) {
       for (var x in document.getElementsByClassName('QR_text')) 
         {
           if (
-            document.getElementsByClassName('QR_text')[x].style.visibility == "hidden"
+            document.getElementsByClassName('QR_text')[x].style.visibility == "hidden" 
           ) {
 
             document.getElementsByClassName('QR_text')[x].style.visibility = "visible";
@@ -1286,7 +1287,9 @@ function qrLink(position) {
       qr.image({
         image: document.getElementById('qr-code'),
         value: url,
-        size: 10
+        size: 10,
+				background:"white",
+				foreground:"black"
       });
 
       document.getElementById('qr-code').setAttribute("class", "democlass");
@@ -1295,8 +1298,7 @@ var keys = {
     Q: false,
     ctrl: false
 };
-
-window.onkeydown(function(event) {
+window.onkeydown=function(event) {
 // save status of the button 'pressed' == 'true'
     if (event.keyCode == 81) {
         keys["Q"] = true;
@@ -1304,7 +1306,20 @@ window.onkeydown(function(event) {
         keys["ctrl"] = true;
     }
     if (keys["Q"] && keys["ctrl"]) {
-        document.getElementById('qrIcon').style.visibility = "visible"; 
+			if (
+            document.getElementById('qrIcon').style.visibility == "hidden"&&
+            document.getElementById('cdawrap').style.visibility == "hidden"
+          ){
+        document.getElementById('qrIcon').style.visibility = "visible"; }
+			else{
+        document.getElementById('qrIcon').style.visibility = "hidden"; }
     }
-});
-
+};
+window.onkeyup=function(event) {
+// save status of the button 'pressed' == 'true'
+    if (event.keyCode == 81) {
+        keys["Q"] = false;
+    } else if (event.keyCode == 17) {
+        keys["ctrl"] = false;
+    }
+};

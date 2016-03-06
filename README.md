@@ -1,6 +1,3 @@
-# ymt
-Tools made by YMT
-
 # Qr Code
 A widget that can be added to any website; creates a qr code that can be used to view the current page on your mobile device.
   ```html
@@ -18,6 +15,12 @@ A widget that can be added to any website; creates a qr code that can be used to
     </body>
 </html>
 ```
+### Chrome Extention 
+1.Download the Folder and Save the folder locally      
+
+2.Go to Chrome and press on the setting and go to More Tools-->Extentions 
+
+3.Click on Load Unpacked exention and select the unzipped folder; The extention should now work!!!!
 
 
   

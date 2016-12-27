@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2016 by Yekush (http://jsbin.com/natorup/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title><script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquerykeyframes/0.0.9/jquery.keyframes.min.js"></script>
+	
+</head>
+<body>
+	<style>
+	
+	
+	html,
+body {
+    background: #212121;
+    margin: 0;
+    padding: 0;
+	overflow:block;
+}
+
+#sun {
+    background-color: #FBC02D;
+    height: 10vh;
+    width: 10vh;
+    border-radius: 30vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#earth {
+    background-color: #039BE5;
+    height: 5vh;
+    width: 5vh;
+    border-radius: 30vh;
+    position: fixed;
+  
+}
+#earth:not(.aroundEarth) {
+	top: 50% !important;
+    left: 50%; transform: translate(-50%, -50%) !important;
+   
+    /* Chrome, Safari 5 */
+}
+
+#earth.aroundEarth {
+	top: 50%;
+    left: 50%; 
+  transform: translate(-50%, -50%);
+}
+#moon {
+    background-color: #E0E0E0;
+    height: 2.5vh;
+    width: 2.5vh;
+    border-radius: 30vh;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    transform: translate(-25%, -25%);
+    -webkit-animation: moonOrbit 5s linear infinite;
+    /* Chrome, Safari 5 */
+}
+#moon2 {
+    background-color: red;
+    height: 1vh;
+    width: 1vh;
+    border-radius: 30vh;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    transform: translate(-200%, -200%);
+    -webkit-animation: moon2Orbit 3s linear infinite;
+    /* Chrome, Safari 5 */
+}
+#sun.aroundEarth {
+
+
+}
+
+</style>
+<div id="sun"></div>
+
+
+	<div id="earth"><div id="moon"><div id="moon2"> </div>  </div> </div> 
+
+<script id="jsbin-javascript">
+/*Animations*/
+
+$.keyframe.define({
+    name: 'earthOrbit',
+    from: {
+        'transform': 'rotate(0deg) translate(10vh, 10vh)' 
+    },
+    to: {
+        'transform': 'rotate(360deg) translate(10vh, 10vh)'
+    }
+});
+
+
+$.keyframe.define({
+    name: 'moon2Orbit',
+    from: {
+        'transform': 'rotate(0deg) translate(2vh, 2vh)' 
+    },
+    to: {
+        'transform': 'rotate(360deg) translate(2vh, 2vh)'
+    }
+});
+
+$.keyframe.define({
+    name: 'moonOrbit',
+    from: {
+        'transform': 'rotate(0deg) translate(5vh, 5vh)' 
+    },
+    to: {
+        'transform': 'rotate(360deg) translate(5vh, 5vh)'
+    }
+});
+
+$(window).load(function(){
+	$("#earth").playKeyframe(
+    'earthOrbit 20s linear 0s infinite');
+	
+	
+});
+
+
+
+$("#earth").click(function() {
+    var position = $('#earth').position();
+    var percentLeft = position.left / $(window).width() * 100;
+    var percentTop = position.top / $(window).height() * 100;
+    $("body").toggleClass("aroundEarth");
+if( $("body").hasClass("aroundEarth")){
+	var whereTo = "translate(" + percentTop + "%, " + percentLeft + "%)";
+	$("#sun").css({transform:"translate(-50%,-50%", position : "relative"});
+	
+$("#earth").prepend($("#sun"));
+	
+	
+   $.keyframe.define({
+    name: 'sunOrbitAroundEarth',
+     from: {
+        'transform': 'rotate(0deg) translate(10vh, 10vh)' 
+    },
+    to: {
+        'transform': 'rotate(360deg) translate(10vh, 10vh)'
+    }
+});
+	
+	$("#sun").playKeyframe(
+    'sunOrbitAroundEarth 20s linear 0s infinite');
+	
+	
+	
+	$("#earth").pauseKeyframe();
+}
+	
+	else{
+		
+		$("#sun").css({ position : "absolute"});
+	
+$("body").prepend($("#sun"));
+	
+		
+		
+		
+	$("#sun").resetKeyframe();
+	
+	$("#earth").resumeKeyframe();
+		
+	}
+ 
+
+});
+</script>
+</body>
+</html>
